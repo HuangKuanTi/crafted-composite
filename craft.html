@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CRAFT | CRAFTED COMPOSITE</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;600&family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root { --bg-color: #ffffff; --text-color: #1a1a1a; --border-color: #eeeeee; }
+        * { box-sizing: border-box; }
+        body { margin: 0; padding: 0; font-family: 'Inter', 'Noto Sans TC', sans-serif; background: var(--bg-color); color: var(--text-color); line-height: 1.8; overflow-x: hidden; }
+
+        /* 導覽列 */
+        nav { 
+            width: 100%; height: 80px; display: flex; justify-content: space-between; align-items: center; 
+            padding: 0 5%; background: rgba(255, 255, 255, 0.95); position: fixed; top: 0; z-index: 1000; 
+            border-bottom: 1px solid var(--border-color); backdrop-filter: blur(10px);
+        }
+        
+        /* 💡 修正：圖片 Logo 樣式 💡 */
+        .brand-logo { display: flex; align-items: center; text-decoration: none; }
+        .brand-logo img { height: 38px; width: auto; display: block; mix-blend-mode: multiply; }
+
+        .nav-links { display: flex; gap: 40px; }
+        .nav-links a { text-decoration: none; color: var(--text-color); font-size: 0.75rem; font-weight: 500; letter-spacing: 2px; }
+
+        /* Hero 區塊 */
+        .universal-hero { 
+            margin-top: 80px; height: 35vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center;
+            background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('bg-carbon.jpg'); 
+            background-size: cover; background-position: center; color: #fff;
+        }
+        .universal-hero h1 { font-size: clamp(1.8rem, 4vw, 2.5rem); font-weight: 300; letter-spacing: 8px; text-transform: uppercase; margin: 0; }
+
+        .diagram-title { text-align: center; margin-bottom: 30px; padding: 0 20px; }
+        .diagram-title h2 { font-size: 1.3rem; font-weight: 500; letter-spacing: 4px; text-transform: uppercase; margin: 0; }
+        .diagram-title .divider { width: 30px; height: 2px; background: #000; margin: 15px auto; }
+
+        /* 區塊一：製造流程 */
+        .section-white { width: 100%; padding: 80px 0; display: flex; flex-direction: column; align-items: center; background: #fff; }
+        .process-image-box { width: 100%; max-width: 1100px; padding: 0 5%; margin-bottom: 25px; }
+        .process-image { width: 100%; height: auto; display: block; }
+        .caption-text { max-width: 800px; text-align: center; color: #555; font-size: 0.95rem; font-weight: 300; padding: 0 20px; }
+
+        /* 區塊二：精密模具 */
+        .section-gray { 
+            width: 100%; background-color: #f8f8f8; padding: 100px 0; 
+            border-top: 1px solid #eee; border-bottom: 1px solid #eee; 
+            display: flex; flex-direction: column; align-items: center;
+        }
+
+        .scroll-wrapper { width: 100%; overflow: hidden; position: relative; }
+
+        .scroll-container {
+            width: 100%; overflow-x: auto; display: flex; padding: 20px 0 30px 0;
+            scroll-snap-type: x mandatory; scroll-behavior: smooth;
+        }
+        .scroll-container::-webkit-scrollbar { height: 6px; }
+        .scroll-container::-webkit-scrollbar-track { background: #eee; margin: 0 30%; border-radius: 10px; }
+        .scroll-container::-webkit-scrollbar-thumb { background: #000; border-radius: 10px; }
+
+        .tool-card {
+            flex: 0 0 70vw; 
+            max-width: 500px; 
+            margin-left: 15vw;
+            scroll-snap-align: center;
+            text-align: center;
+        }
+        .tool-card:last-child { margin-right: 15vw; }
+
+        .tool-card img { width: 100%; height: auto; background: #fff; border: 1px solid #eee; display: block; }
+
+        .tool-label { font-size: 0.7rem; letter-spacing: 2px; color: #bbb; text-transform: uppercase; margin: 15px 0 10px; }
+        .tool-desc { color: #555; font-size: 0.9rem; font-weight: 300; padding: 0 10px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+
+        /* 指示器與箭頭 */
+        .indicator-wrap { display: flex; flex-direction: column; align-items: center; margin-top: 30px; gap: 15px; }
+        .scroll-arrows { display: flex; align-items: center; gap: 40px; }
+        .arrow-btn { font-size: 1.8rem; color: #000; cursor: pointer; user-select: none; transition: 0.3s; padding: 0 15px; }
+        .arrow-btn:hover { opacity: 0.4; }
+
+        .dot-box { display: flex; gap: 8px; align-items: center; }
+        .dot { width: 6px; height: 6px; background: #ddd; border-radius: 50%; }
+        .dot.active { background: #000; width: 18px; border-radius: 10px; }
+        .scroll-hint { font-size: 0.65rem; color: #999; letter-spacing: 3px; text-transform: uppercase; }
+
+        footer { padding: 80px 50px; border-top: 1px solid var(--border-color); font-size: 0.65rem; color: #ccc; text-align: center; letter-spacing: 3px; }
+
+        @media (max-width: 768px) {
+            .tool-card { flex: 0 0 85vw; margin-left: 7.5vw; }
+            .tool-desc { white-space: normal; }
+        }
+    </style>
+</head>
+<body>
+
+<nav>
+    <a href="index.html" class="brand-logo">
+        <img src="logo.png" alt="CRAFTED COMPOSITE">
+    </a>
+    <div class="nav-links">
+        <a href="index.html">COLLECTION</a>
+        <a href="craft.html">CRAFT</a>
+        <a href="contact.html">CONTACT</a>
+    </div>
+</nav>
+
+<section class="universal-hero">
+    <h1>Composite Refinement</h1>
+</section>
+
+<div class="section-white">
+    <div class="diagram-title">
+        <h2>Manufacturing Process</h2>
+        <div class="divider"></div>
+        <p style="color: #999; font-size: 0.7rem; letter-spacing: 2px;">Advanced Composite Manufacturing System Flow</p>
+    </div>
+    <div class="process-image-box">
+        <img src="process-diagram.png" alt="ACM Process" class="process-image">
+    </div>
+    <div class="caption-text">
+        <p>透過精確的壓力與溫度控制，確保每一件複合材料部件都具備一致的強度與品質。</p>
+    </div>
+</div>
+
+<div class="section-gray">
+    <div class="diagram-title">
+        <h2>Precision Tooling</h2>
+        <div class="divider"></div>
+        <p style="color: #999; font-size: 0.7rem; letter-spacing: 2px;">SWIPE TO EXPLORE</p>
+    </div>
+
+    <div class="scroll-container" id="moldScroll">
+        <div class="tool-card">
+            <div class="tool-label">Part 01: Oil Cap Mold</div>
+            <img src="mold-view.png" alt="Oil Cap Mold">
+            <div class="tool-desc">優化分模面設計，確保Pre-Preg在熱壓過程中完美貼合。</div>
+        </div>
+
+        <div class="tool-card">
+            <div class="tool-label">Part 02: Forthcoming Project</div>
+            <img src="mold-view-02.png" alt="Future Product" onerror="this.src='https://via.placeholder.com/600x450/ffffff/f5f5f5?text=UNDER+DEVELOPMENT';">
+            <div class="tool-desc">下一個研發專案正在進行中，挑戰更複雜的幾何結構與安裝精度。</div>
+        </div>
+    </div>
+
+    <div class="indicator-wrap">
+        <div class="scroll-arrows">
+            <span class="arrow-btn" onclick="scrollMolds(-1)">‹</span>
+            <div class="dot-box">
+                <div class="dot active"></div>
+                <div class="dot"></div>
+            </div>
+            <span class="arrow-btn" onclick="scrollMolds(1)">›</span>
+        </div>
+        <div class="scroll-hint">Slide to View More Precision Tooling</div>
+    </div>
+</div>
+
+<footer>© 2026 CRAFTED COMPOSITE.</footer>
+
+<script>
+    function scrollMolds(direction) {
+        const container = document.getElementById('moldScroll');
+        const scrollAmount = container.clientWidth * 0.75;
+        container.scrollBy({ left: direction * scrollAmount, behavior: 'smooth' });
+    }
+</script>
+
+</body>
+</html>

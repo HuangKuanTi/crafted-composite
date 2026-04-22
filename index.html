@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HOME | CRAFTED COMPOSITE</title>
+    <style>
+        :root { --bg-color: #ffffff; --text-color: #1a1a1a; --border-color: #eeeeee; }
+        * { box-sizing: border-box; }
+        body { margin: 0; padding: 0; font-family: 'Inter', sans-serif; background: var(--bg-color); color: var(--text-color); line-height: 1.8; }
+
+        nav { 
+            width: 100%; height: 80px; display: flex; justify-content: space-between; align-items: center; 
+            padding: 0 5%; background: #ffffff; position: fixed; top: 0; z-index: 1000; 
+            border-bottom: 1px solid var(--border-color);
+        }
+        
+        .brand-logo { display: flex; align-items: center; text-decoration: none; }
+        .brand-logo img { height: 38px; width: auto; display: block; mix-blend-mode: multiply; }
+
+        .nav-links { display: flex; gap: 40px; }
+        .nav-links a { text-decoration: none; color: var(--text-color); font-size: 0.75rem; font-weight: 500; letter-spacing: 2px; }
+
+        .universal-hero { 
+            margin-top: 80px; height: 35vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center;
+            background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('bg-carbon.jpg'); 
+            background-size: cover; background-position: center; color: #fff;
+        }
+
+        .main-content { max-width: 1200px; margin: 0 auto; padding: 60px 5% 100px; display: grid; grid-template-columns: 1.2fr 1fr; gap: 60px; align-items: start; }
+        
+        /* 💡 修正：圖片展示區容器 💡 */
+        .product-visual { display: flex; flex-direction: column; gap: 15px; }
+        
+        .main-image-container {
+            background-color: #fcfcfc; aspect-ratio: 4/3; display: flex; align-items: center; justify-content: center; border: 1px solid #f0f0f0;
+            cursor: zoom-in; overflow: hidden;
+        }
+        .main-image-container img { width: 75%; height: auto; object-fit: contain; transition: transform 0.3s; }
+        
+        /* 💡 縮圖橫 Bar 💡 */
+        .thumbnail-bar { display: flex; gap: 10px; overflow-x: auto; padding-bottom: 10px; scrollbar-width: thin; }
+        .thumbnail-bar img { 
+            width: 80px; height: 60px; object-fit: cover; border: 1px solid #eee; cursor: pointer; opacity: 0.6; transition: 0.3s; 
+        }
+        .thumbnail-bar img.active { opacity: 1; border-color: #000; }
+        .thumbnail-bar img:hover { opacity: 1; }
+
+        /* 💡 放大模態視窗 (Modal) 💡 */
+        .modal {
+            display: none; position: fixed; z-index: 2000; top: 0; left: 0; width: 100%; height: 100%;
+            background-color: rgba(255,255,255,0.98); align-items: center; justify-content: center;
+        }
+        .modal-content { max-width: 90%; max-height: 80%; object-fit: contain; }
+        .close-modal { position: absolute; top: 30px; right: 50px; font-size: 40px; cursor: pointer; color: #000; }
+
+        .product-title { font-size: 2rem; font-weight: 600; border-bottom: 2px solid #000; padding-bottom: 10px; margin-bottom: 25px; }
+        
+        .comp-link-text {
+            display: inline-block; margin-top: 5px; margin-bottom: 35px; font-size: 0.95rem;
+            color: #000; font-weight: 700; text-decoration: none; border-bottom: 2px solid #000; transition: all 0.3s; letter-spacing: 1px;
+        }
+        .comp-link-text:hover { opacity: 0.6; }
+
+        .price { font-size: 1.8rem; font-weight: 700; margin-bottom: 30px; }
+        .btn-black { display: block; width: 100%; padding: 20px; background: #000; color: #fff; text-decoration: none; text-align: center; font-weight: 600; letter-spacing: 5px; }
+
+        footer { padding: 80px 50px; border-top: 1px solid var(--border-color); text-align: center; font-size: 0.65rem; color: #ccc; letter-spacing: 3px; }
+        @media (max-width: 900px) { .main-content { grid-template-columns: 1fr; } }
+    </style>
+</head>
+<body>
+
+<nav>
+    <a href="index.html" class="brand-logo">
+        <img src="logo.png" alt="CRAFTED COMPOSITE">
+    </a>
+    <div class="nav-links">
+        <a href="index.html">COLLECTION</a>
+        <a href="craft.html">CRAFT</a>
+        <a href="contact.html">CONTACT</a>
+    </div>
+</nav>
+
+<section class="universal-hero">
+    <h1 style="letter-spacing: 8px; text-transform: uppercase;">Composite Refinement</h1>
+</section>
+
+<main class="main-content">
+    <div class="product-visual">
+        <div class="main-image-container" onclick="openModal()">
+            <img id="currentDisplay" src="image_87b1c8.jpg" alt="Carbon Fiber Oil Cap">
+        </div>
+        <div class="thumbnail-bar">
+            <img src="image_87b1c8.jpg" class="active" onclick="switchImage(this.src, this)">
+            <img src="image_87b1c9.jpg" onclick="switchImage(this.src, this)">
+            <img src="image_87b1c10.jpg" onclick="switchImage(this.src, this)">
+            <img src="image_87b1c11.jpg" onclick="switchImage(this.src, this)">
+            <img src="image_87b1c12.jpg" onclick="switchImage(this.src, this)">
+            <img src="image_87b1c13.jpg" onclick="switchImage(this.src, this)">
+        </div>
+    </div>
+
+    <div class="product-info">
+        <h2 class="product-title">BMW 碳纖維機油蓋</h2>
+        <p style="color: #666; margin-bottom: 10px;">
+            採用航太級 3K 預浸碳纖維布，採用鍛造熱壓成型。專為 BMW G 系列引擎室量身打造，展現極致工藝。
+        </p>
+        
+        <a href="compatibility.html" class="comp-link-text">查看完整適用車種清單 →</a>
+
+        <div class="price">TWD 750</div>
+        <a href="contact.html" class="btn-black">立即預訂</a>
+    </div>
+</main>
+
+<div id="imageModal" class="modal" onclick="closeModal()">
+    <span class="close-modal">&times;</span>
+    <img class="modal-content" id="modalImg">
+</div>
+
+<footer>© 2026 CRAFTED COMPOSITE.</footer>
+
+<script>
+    // 切換大圖
+    function switchImage(src, thumb) {
+        document.getElementById('currentDisplay').src = src;
+        // 處理縮圖的高亮狀態
+        const thumbs = document.querySelectorAll('.thumbnail-bar img');
+        thumbs.forEach(t => t.classList.remove('active'));
+        thumb.classList.add('active');
+    }
+
+    // 放大圖片
+    function openModal() {
+        const modal = document.getElementById('imageModal');
+        const modalImg = document.getElementById('modalImg');
+        const currentImg = document.getElementById('currentDisplay');
+        modal.style.display = "flex";
+        modalImg.src = currentImg.src;
+    }
+
+    // 關閉放大視窗
+    function closeModal() {
+        document.getElementById('imageModal').style.display = "none";
+    }
+</script>
+
+</body>
+</html>

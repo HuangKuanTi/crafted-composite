@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>COMPATIBILITY | CRAFTED COMPOSITE</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root { --bg-color: #ffffff; --text-color: #1a1a1a; --border-color: #f0f0f0; --accent-color: #999; }
+        * { box-sizing: border-box; }
+        body { margin: 0; font-family: 'Inter', 'Noto Sans TC', sans-serif; background: var(--bg-color); line-height: 1.6; color: var(--text-color); }
+        
+        /* 導覽列 */
+        nav { 
+            width: 100%; height: 80px; display: flex; justify-content: space-between; align-items: center; 
+            padding: 0 5%; background: #fff; position: fixed; top: 0; z-index: 1000; 
+            border-bottom: 1px solid var(--border-color); 
+        }
+        
+        .logo { display: flex; align-items: center; text-decoration: none; }
+        .logo img { height: 38px; width: auto; display: block; mix-blend-mode: multiply; }
+
+        .nav-links { display: flex; gap: 30px; }
+        .nav-links a { text-decoration: none; color: var(--text-color); font-size: 0.75rem; font-weight: 500; letter-spacing: 2px; }
+
+        /* 💡 恢復 Hero 區塊樣式 💡 */
+        .universal-hero { 
+            margin-top: 80px; height: 35vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center;
+            background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('bg-carbon.jpg'); 
+            background-size: cover; background-position: center; color: #fff;
+        }
+        .universal-hero h1 { font-size: 2.5rem; font-weight: 200; letter-spacing: 12px; text-transform: uppercase; margin: 0; }
+
+        .container { max-width: 900px; margin: 60px auto 80px; padding: 0 40px; }
+        .page-title { font-size: 2rem; font-weight: 300; letter-spacing: 5px; margin-bottom: 50px; text-align: center; }
+        .series-group { margin-bottom: 60px; }
+        .series-title { font-size: 0.85rem; font-weight: 700; letter-spacing: 3px; color: var(--accent-color); border-bottom: 1px solid var(--border-color); padding-bottom: 10px; margin-bottom: 25px; }
+        .model-list { list-style: none; padding: 0; }
+        .model-item { display: flex; justify-content: space-between; padding: 12px 0; border-bottom: 1px solid #fafafa; }
+        .model-code { font-weight: 500; font-size: 1rem; }
+        .model-year { color: #aaa; font-size: 0.85rem; font-weight: 300; }
+        
+        footer { padding: 60px; border-top: 1px solid var(--border-color); text-align: center; font-size: 0.65rem; color: #ccc; letter-spacing: 3px; }
+ 
+/* 置中容器 */
+.back-container { 
+    text-align: center; 
+    padding: 60px 0 100px; /* 增加上下間距 */
+}
+
+/* 按鈕樣式 */
+.back-link {
+    display: inline-block;
+    text-decoration: none;
+    color: #000;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 3px;
+    border: 1px solid #000;
+    padding: 15px 45px;
+    transition: all 0.3s ease;
+}
+
+.back-link:hover {
+    background: #000;
+    color: #fff;
+}
+
+   </style>
+
+</head>
+<body>
+
+<nav>
+    <a href="index.html" class="logo">
+        <img src="logo.png" alt="CRAFTED COMPOSITE">
+    </a>
+    <div class="nav-links">
+        <a href="index.html">COLLECTION</a>
+        <a href="craft.html">CRAFT</a>
+        <a href="compatibility.html">COMPATIBILITY</a>
+        <a href="contact.html">CONTACT</a>
+    </div>
+</nav>
+
+<section class="universal-hero">
+    <h1>Composite Refinement</h1>
+</section>
+
+<div class="container">
+    <h1 class="page-title">COMPATIBILITY LIST</h1>
+    <p style="text-align: center; color: #666; font-size: 0.9rem; margin-top: -35px; margin-bottom: 50px; letter-spacing: 1px;">BMW OE part number 11128654637</p>
+
+    <div class="series-group">
+        <div class="series-title">M HIGH PERFORMANCE</div>
+        <ul class="model-list">
+            <li class="model-item"><span class="model-code">M2 / M3 / M4</span><span class="model-year">2021+</span></li>
+            <li class="model-item"><span class="model-code">M5 / M8</span><span class="model-year">2019+</span></li>
+            <li class="model-item"><span class="model-code">X3 M / X4 M</span><span class="model-year">2020+</span></li>
+            <li class="model-item"><span class="model-code">X5 M / X6 M</span><span class="model-year">2020+</span></li>
+            <li class="model-item"><span class="model-code">XM</span><span class="model-year">2023+</span></li>
+        </ul>
+    </div>
+
+    <div class="series-group">
+        <div class="series-title">M PERFORMANCE</div>
+        <ul class="model-list">
+            <li class="model-item"><span class="model-code">M135i / M235i</span><span class="model-year">2020+</span></li>
+            <li class="model-item"><span class="model-code">M340i / M440i</span><span class="model-year">2019+</span></li>
+            <li class="model-item"><span class="model-code">M550i / M850i</span><span class="model-year">2018+</span></li>
+            <li class="model-item"><span class="model-code">X1 M35i / X2 M35i</span><span class="model-year">2024+</span></li>
+            <li class="model-item"><span class="model-code">X3 M40i / X4 M40i</span><span class="model-year">2018+</span></li>
+            <li class="model-item"><span class="model-code">X5 M60i / X6 M60i</span><span class="model-year">2024+</span></li>
+            <li class="model-item"><span class="model-code">Z4 M40i</span><span class="model-year">2019+</span></li>
+        </ul>
+    </div>
+
+    <div class="series-group">
+        <div class="series-title">3 & 4 SERIES</div>
+        <ul class="model-list">
+            <li class="model-item"><span class="model-code">330i / 330e (G20)</span><span class="model-year">2019+</span></li>
+            <li class="model-item"><span class="model-code">430i (G22/G23/G26)</span><span class="model-year">2021+</span></li>
+            <li class="model-item"><span class="model-code">330i (F30/F31 B48)</span><span class="model-year">2016 - 2018</span></li>
+        </ul>
+    </div>
+
+    <div class="series-group">
+        <div class="series-title">X1 & X2 SERIES</div>
+        <ul class="model-list">
+            <li class="model-item"><span class="model-code">X1 (U11) sDrive20i/xDrive28i</span><span class="model-year">2023+</span></li>
+            <li class="model-item"><span class="model-code">X1 (F48 LCI)</span><span class="model-year">2020 - 2022</span></li>
+            <li class="model-item"><span class="model-code">X2 (U10) / (F39)</span><span class="model-year">2018+</span></li>
+        </ul>
+    </div>
+
+    <div class="series-group">
+        <div class="series-title">X3 & X4 SERIES</div>
+        <ul class="model-list">
+            <li class="model-item"><span class="model-code">X3 (G01) xDrive30i</span><span class="model-year">2018+</span></li>
+            <li class="model-item"><span class="model-code">X4 (G02) xDrive30i</span><span class="model-year">2019+</span></li>
+        </ul>
+    </div>
+
+    <div class="series-group">
+        <div class="series-title">X5, X6 & X7 SERIES</div>
+        <ul class="model-list">
+            <li class="model-item"><span class="model-code">X5 (G05) xDrive40i</span><span class="model-year">2019+</span></li>
+            <li class="model-item"><span class="model-code">X6 (G06) xDrive40i</span><span class="model-year">2020+</span></li>
+            <li class="model-item"><span class="model-code">X7 (G07) xDrive40i</span><span class="model-year">2019+</span></li>
+        </ul>
+    </div>
+
+    <div class="series-group">
+        <div class="series-title">OTHER SERIES</div>
+        <ul class="model-list">
+            <li class="model-item"><span class="model-code">5 Series (G30/G60)</span><span class="model-year">2017+</span></li>
+            <li class="model-item"><span class="model-code">7 Series (G11/G70)</span><span class="model-year">2016+</span></li>
+            <li class="model-item"><span class="model-code">Z4 (G29) sDrive30i</span><span class="model-year">2019+</span></li>
+        </ul>
+    </div>
+</div>
+
+<div class="back-container">
+    <a href="index.html" class="back-link">BACK TO COLLECTION</a>
+</div>
+
+<footer>© 2026 CRAFTED COMPOSITE.</footer>
+</body>
+</html>

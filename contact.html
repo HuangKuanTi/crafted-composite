@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CONTACT | CRAFTED COMPOSITE</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;600&family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root { --bg-color: #ffffff; --text-color: #1a1a1a; --border-color: #eeeeee; }
+        * { box-sizing: border-box; }
+        body { margin: 0; padding: 0; font-family: 'Inter', 'Noto Sans TC', sans-serif; background: var(--bg-color); color: var(--text-color); line-height: 1.8; }
+
+        /* 導覽列 */
+        nav { 
+            width: 100%; height: 80px; display: flex; justify-content: space-between; align-items: center; 
+            padding: 0 5%; background: rgba(255, 255, 255, 0.95); position: fixed; top: 0; z-index: 1000; 
+            border-bottom: 1px solid var(--border-color); backdrop-filter: blur(10px);
+        }
+        
+        .brand-logo { display: flex; align-items: center; text-decoration: none; }
+        .brand-logo img { height: 38px; width: auto; display: block; mix-blend-mode: multiply; }
+
+        .nav-links { display: flex; gap: 40px; }
+        .nav-links a { text-decoration: none; color: var(--text-color); font-size: 0.75rem; font-weight: 500; letter-spacing: 2px; }
+
+        /* 統一 Hero 區塊 */
+        .universal-hero { 
+            margin-top: 80px; height: 35vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center;
+            background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('bg-carbon.jpg'); 
+            background-size: cover; background-position: center; color: #fff;
+        }
+        .universal-hero h1 { font-size: clamp(1.8rem, 4vw, 2.5rem); font-weight: 300; letter-spacing: 8px; text-transform: uppercase; margin: 0; }
+        .universal-hero p { letter-spacing: 5px; font-size: 0.7rem; color: #ccc; text-transform: uppercase; margin-top: 10px; }
+
+        /* 聯絡內容區塊 */
+        .contact-container {
+            max-width: 1100px; margin: 80px auto; padding: 0 5%;
+            display: grid; grid-template-columns: 1fr 1fr; gap: 80px;
+        }
+
+        .contact-info h2 { font-size: 1.8rem; font-weight: 400; letter-spacing: 2px; margin-bottom: 30px; }
+        .contact-info p { color: #666; font-size: 0.95rem; margin-bottom: 40px; }
+
+        .info-item { margin-bottom: 30px; }
+        .info-label { font-size: 0.65rem; text-transform: uppercase; color: #bbb; letter-spacing: 3px; margin-bottom: 5px; }
+        .info-value { font-size: 1.1rem; font-weight: 500; color: #000; text-decoration: none; }
+        .info-value a { color: inherit; text-decoration: none; border-bottom: 1px solid #ddd; transition: 0.3s; }
+        .info-value a:hover { border-bottom: 1px solid #000; }
+
+        .map-box {
+            width: 100%; aspect-ratio: 1/1; background-color: #f8f8f8;
+            border: 1px solid #eee; position: relative; overflow: hidden;
+        }
+        .map-box iframe { width: 100%; height: 100%; border: 0; }
+
+        footer { padding: 80px 50px; border-top: 1px solid var(--border-color); font-size: 0.65rem; color: #ccc; text-align: center; letter-spacing: 3px; }
+
+        @media (max-width: 850px) {
+            .contact-container { grid-template-columns: 1fr; gap: 50px; }
+            .map-box { aspect-ratio: 16/9; }
+        }
+    </style>
+</head>
+<body>
+
+<nav>
+    <a href="index.html" class="brand-logo">
+        <img src="logo.png" alt="CRAFTED COMPOSITE">
+    </a>
+    <div class="nav-links">
+        <a href="index.html">COLLECTION</a>
+        <a href="craft.html">CRAFT</a>
+        <a href="contact.html">CONTACT</a>
+    </div>
+</nav>
+
+<section class="universal-hero">
+    <h1>Connect with Us</h1>
+    <p>Precision is a Conversation</p>
+</section>
+
+<main class="contact-container">
+    <div class="contact-info">
+        <h2>Get in Touch</h2>
+        <p>無論您是對 BMW G-Series 配件有預購需求，或是希望針對高性能複合材料零件進行客製化開發諮詢，歡迎隨時透過以下方式與我們聯繫。</p>
+        
+        <div class="info-item">
+            <div class="info-label">Email</div>
+            <div class="info-value"><a href="mailto:info@crafted-composite.com">info@crafted-composite.com</a></div>
+        </div>
+
+        <div class="info-item">
+            <div class="info-label">Phone</div>
+            <div class="info-value"><a href="tel:+886915710670">+886 915 710 670</a></div>
+        </div>
+
+        <div class="info-item">
+            <div class="info-label">Location</div>
+            <div class="info-value">6F., No. 113, Qingnian 1st Rd., Lingya Dist., Kaohsiung City, Taiwan</div>
+        </div>
+
+        <div class="info-item">
+            <div class="info-label">Business Hours</div>
+            <div class="info-value">Mon - Fri / 09:00 - 18:00</div>
+        </div>
+    </div>
+
+    <div class="map-box">
+        <iframe 
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3682.880467554583!2d120.3115433!3d22.620959!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x346e049774614747%3A0xc391b1062f483569!2zODAy6auY6ZuE5biC6IuT6ZuF5Y2A6Z2S5bm05LiA6LevMTEz6Jmf!5e0!3m2!1szh-TW!2stw!4v1714123456789!5m2!1szh-TW!2stw" 
+            allowfullscreen="" 
+            loading="lazy" 
+            referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+    </div>
+</main>
+
+<footer>© 2026 CRAFTED COMPOSITE. <br>Refining the Physics of Speed.</footer>
+
+</body>
+</html>
