@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paddle Shifter for Benz | CRAFTED COMPOSITE</title>
+    <style>
+        :root { --bg-color: #ffffff; --text-color: #1a1a1a; --border-color: #eeeeee; }
+        * { box-sizing: border-box; }
+        body { margin: 0; padding: 0; font-family: 'Inter', sans-serif; background: var(--bg-color); color: var(--text-color); line-height: 1.8; }
+
+        nav { 
+            width: 100%; height: 80px; display: flex; justify-content: space-between; align-items: center; 
+            padding: 0 5%; background: #ffffff; position: fixed; top: 0; z-index: 1000; 
+            border-bottom: 1px solid var(--border-color);
+        }
+        
+        .brand-logo { display: flex; align-items: center; text-decoration: none; }
+        .brand-logo img { height: 38px; width: auto; display: block; mix-blend-mode: multiply; }
+
+        .nav-links { display: flex; gap: 40px; }
+        .nav-links a { text-decoration: none; color: var(--text-color); font-size: 0.75rem; font-weight: 500; letter-spacing: 2px; }
+
+        .dropdown { position: relative; display: inline-block; }
+        .dropdown-menu {
+            display: none; position: absolute; top: 100%; left: 0; background-color: #ffffff;
+            min-width: 280px; box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.1); border: 1px solid var(--border-color);
+            z-index: 1001; padding: 4px 0;
+        }
+        .dropdown-menu a {
+            font-family: 'BankGothic Md BT', sans-serif; color: var(--text-color); padding: 6px 20px;
+            text-decoration: none; display: block; font-size: 0.95rem; letter-spacing: 1px; white-space: nowrap; transition: 0.2s;
+        }
+        .dropdown-menu a:hover { background-color: #f8f8f8; color: #000; }
+        .dropdown:hover .dropdown-menu { display: block; }
+
+        .universal-hero { 
+            margin-top: 80px; height: 35vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center;
+            background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('bg-carbon.jpg'); 
+            background-size: cover; background-position: center; color: #fff;
+        }
+
+        .main-content { max-width: 1200px; margin: 0 auto; padding: 60px 5% 100px; display: grid; grid-template-columns: 1.2fr 1fr; gap: 60px; align-items: start; }
+        .product-visual { display: flex; flex-direction: column; gap: 15px; }
+        .main-image-container { background-color: #fcfcfc; aspect-ratio: 4/3; display: flex; align-items: center; justify-content: center; border: 1px solid #f0f0f0; cursor: zoom-in; overflow: hidden; }
+        .main-image-container img { width: 75%; height: auto; object-fit: contain; transition: transform 0.3s; }
+        .thumbnail-bar { display: flex; gap: 10px; overflow-x: auto; padding-bottom: 10px; scrollbar-width: thin; }
+        .thumbnail-bar img { width: 80px; height: 60px; object-fit: cover; border: 1px solid #eee; cursor: pointer; opacity: 0.6; transition: 0.3s; }
+        .thumbnail-bar img.active { opacity: 1; border-color: #000; }
+
+        .modal { display: none; position: fixed; z-index: 2000; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(255,255,255,0.98); align-items: center; justify-content: center; }
+        .modal-content { max-width: 90%; max-height: 80%; object-fit: contain; }
+        .close-modal { position: absolute; top: 30px; right: 50px; font-size: 40px; cursor: pointer; color: #000; }
+
+        .product-title { font-size: 2rem; font-weight: 600; border-bottom: 2px solid #000; padding-bottom: 10px; margin-bottom: 25px; }
+        .comp-link-text { display: inline-block; margin-top: 5px; margin-bottom: 35px; font-size: 0.95rem; color: #000; font-weight: 700; text-decoration: none; border-bottom: 2px solid #000; transition: all 0.3s; letter-spacing: 1px; }
+        .price { font-size: 1.8rem; font-weight: 700; margin-bottom: 30px; }
+        .btn-black { display: block; width: 100%; padding: 20px; background: #000; color: #fff; text-decoration: none; text-align: center; font-weight: 600; letter-spacing: 5px; }
+
+        footer { padding: 80px 50px; border-top: 1px solid var(--border-color); text-align: center; font-size: 0.65rem; color: #ccc; letter-spacing: 3px; }
+        @media (max-width: 900px) { .main-content { grid-template-columns: 1fr; } }
+    </style>
+</head>
+<body>
+
+<nav>
+    <a href="index.html" class="brand-logo">
+        <img src="logo.png" alt="CRAFTED COMPOSITE">
+    </a>
+    <div class="nav-links">
+        <div class="dropdown">
+            <a href="index.html">COLLECTION</a>
+            <div class="dropdown-menu">
+                <a href="bmw-oil-cap.html">BMW Engine-Oil Cover Cap</a>
+                <a href="bmw-paddle-shifter.html">Paddle Shifter for BMW G</a>
+                <a href="audi-b10-paddle-shifter.html">Paddle Shifter for Audi B10</a>
+                <a href="benz-paddle-shifter.html">Paddle Shifter for Benz</a>
+            </div>
+        </div>
+        <a href="craft.html">CRAFT</a>
+        <a href="contact.html">CONTACT</a>
+    </div>
+</nav>
+
+<section class="universal-hero">
+    <h1 style="letter-spacing: 8px; text-transform: uppercase;">Composite Refinement</h1>
+</section>
+
+<main class="main-content">
+    <div class="product-visual">
+        <div class="main-image-container" onclick="openModal()">
+            <img id="currentDisplay" src="paddle_placeholder.jpg" alt="Paddle Shifter for Benz">
+        </div>
+        <div class="thumbnail-bar">
+            <img src="paddle_placeholder.jpg" class="active" onclick="switchImage(this.src, this)">
+            <img src="paddle_placeholder.jpg" onclick="switchImage(this.src, this)">
+            <img src="paddle_placeholder.jpg" onclick="switchImage(this.src, this)">
+        </div>
+    </div>
+
+    <div class="product-info">
+        <h2 class="product-title">Mercedes-Benz 鍛造碳纖維換檔撥片</h2>
+        <p style="color: #666; margin-bottom: 10px;">
+            專為 Mercedes-Benz 車系開發之碳纖維換檔撥片。採用高剛性複合材料熱壓成型，提供更為優異的手感與視覺質感。（文字內容預留區）
+        </p>
+        
+        <a href="compatibility.html" class="comp-link-text">查看完整適用車種清單 →</a>
+
+        <div class="price">TWD --</div>
+        <a href="contact.html" class="btn-black">立即預訂</a>
+    </div>
+</main>
+
+<div id="imageModal" class="modal" onclick="closeModal()">
+    <span class="close-modal">&times;</span>
+    <img class="modal-content" id="modalImg">
+</div>
+
+<footer>© 2026 CRAFTED COMPOSITE.</footer>
+
+<script>
+    function switchImage(src, thumb) {
+        document.getElementById('currentDisplay').src = src;
+        const thumbs = document.querySelectorAll('.thumbnail-bar img');
+        thumbs.forEach(t => t.classList.remove('active'));
+        thumb.classList.add('active');
+    }
+    function openModal() {
+        const modal = document.getElementById('imageModal');
+        const modalImg = document.getElementById('modalImg');
+        const currentImg = document.getElementById('currentDisplay');
+        modal.style.display = "flex";
+        modalImg.src = currentImg.src;
+    }
+    function closeModal() {
+        document.getElementById('imageModal').style.display = "none";
+    }
+</script>
+
+</body>
+</html>
