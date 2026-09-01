@@ -52,13 +52,17 @@
         .modal-content { max-width: 90%; max-height: 80%; object-fit: contain; }
         .close-modal { position: absolute; top: 30px; right: 50px; font-size: 40px; cursor: pointer; color: #000; }
 
-        .product-title { font-size: 2rem; font-weight: 600; border-bottom: 2px solid #000; padding-bottom: 10px; margin-bottom: 25px; }
+        /* 修改：調整字體大小並加上 white-space: nowrap 以確保強制單行呈現 */
+        .product-title { font-size: 1.45rem; font-weight: 600; border-bottom: 2px solid #000; padding-bottom: 10px; margin-bottom: 25px; white-space: nowrap; }
         .comp-link-text { display: inline-block; margin-top: 5px; margin-bottom: 35px; font-size: 0.95rem; color: #000; font-weight: 700; text-decoration: none; border-bottom: 2px solid #000; transition: all 0.3s; letter-spacing: 1px; }
         .price { font-size: 1.8rem; font-weight: 700; margin-bottom: 30px; }
         .btn-black { display: block; width: 100%; padding: 20px; background: #000; color: #fff; text-decoration: none; text-align: center; font-weight: 600; letter-spacing: 5px; }
 
         footer { padding: 80px 50px; border-top: 1px solid var(--border-color); text-align: center; font-size: 0.65rem; color: #ccc; letter-spacing: 3px; }
-        @media (max-width: 900px) { .main-content { grid-template-columns: 1fr; } }
+        @media (max-width: 900px) { 
+            .main-content { grid-template-columns: 1fr; }
+            .product-title { font-size: 1.25rem; white-space: normal; } 
+        }
     </style>
 </head>
 <body>
@@ -73,8 +77,8 @@
             <div class="dropdown-menu">
                 <a href="bmw-oil-cap.html">BMW Engine-Oil Cover Cap</a>
                 <a href="bmw-paddle-shifter.html">Paddle Shifter for BMW G</a>
-                <a href="#">Paddle Shifter for Audi B10</a>
-                <a href="#">Paddle Shifter for Benz</a>
+                <a href="audi-b10-paddle-shifter.html">Paddle Shifter for Audi B10</a>
+                <a href="benz-paddle-shifter.html">Paddle Shifter for Benz</a>
             </div>
         </div>
         <a href="craft.html">CRAFT</a>
@@ -89,11 +93,9 @@
 <main class="main-content">
     <div class="product-visual">
         <div class="main-image-container" onclick="openModal()">
-            <!-- 照片預留區：後續將 src 替換為你的撥片主圖檔名 -->
             <img id="currentDisplay" src="paddle_placeholder.jpg" alt="Paddle Shifter for BMW G">
         </div>
         <div class="thumbnail-bar">
-            <!-- 縮圖預留區：後續依序填入撥片圖片檔名 -->
             <img src="paddle_placeholder.jpg" class="active" onclick="switchImage(this.src, this)">
             <img src="paddle_placeholder.jpg" onclick="switchImage(this.src, this)">
             <img src="paddle_placeholder.jpg" onclick="switchImage(this.src, this)">
@@ -103,7 +105,7 @@
     <div class="product-info">
         <h2 class="product-title">BMW G系列 鍛造碳纖維換檔撥片</h2>
         <p style="color: #666; margin-bottom: 10px;">
-            專為 BMW G 世代車系開發之碳纖維換檔撥片。鍛造大理石紋碳纖維與鍛造CNC鋁6061搭配，提供更為優異的手感與視覺質感。（文字內容預留區）
+            專為 BMW G 世代車系開發之碳纖維換檔撥片。採用高剛性複合材料熱壓成型，提供更為優異的手感與視覺質感。（文字內容預留區）
         </p>
         
         <a href="compatibility.html" class="comp-link-text">查看完整適用車種清單 →</a>

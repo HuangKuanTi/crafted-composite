@@ -52,13 +52,17 @@
         .modal-content { max-width: 90%; max-height: 80%; object-fit: contain; }
         .close-modal { position: absolute; top: 30px; right: 50px; font-size: 40px; cursor: pointer; color: #000; }
 
-        .product-title { font-size: 2rem; font-weight: 600; border-bottom: 2px solid #000; padding-bottom: 10px; margin-bottom: 25px; }
+        /* 修改：調整字體大小並加上 white-space: nowrap 以確保強制單行呈現 */
+        .product-title { font-size: 1.45rem; font-weight: 600; border-bottom: 2px solid #000; padding-bottom: 10px; margin-bottom: 25px; white-space: nowrap; }
         .comp-link-text { display: inline-block; margin-top: 5px; margin-bottom: 35px; font-size: 0.95rem; color: #000; font-weight: 700; text-decoration: none; border-bottom: 2px solid #000; transition: all 0.3s; letter-spacing: 1px; }
         .price { font-size: 1.8rem; font-weight: 700; margin-bottom: 30px; }
         .btn-black { display: block; width: 100%; padding: 20px; background: #000; color: #fff; text-decoration: none; text-align: center; font-weight: 600; letter-spacing: 5px; }
 
         footer { padding: 80px 50px; border-top: 1px solid var(--border-color); text-align: center; font-size: 0.65rem; color: #ccc; letter-spacing: 3px; }
-        @media (max-width: 900px) { .main-content { grid-template-columns: 1fr; } }
+        @media (max-width: 900px) { 
+            .main-content { grid-template-columns: 1fr; }
+            .product-title { font-size: 1.25rem; white-space: normal; } 
+        }
     </style>
 </head>
 <body>
