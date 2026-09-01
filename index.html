@@ -21,93 +21,39 @@
         .nav-links { display: flex; gap: 40px; }
         .nav-links a { text-decoration: none; color: var(--text-color); font-size: 0.75rem; font-weight: 500; letter-spacing: 2px; }
 
-        /* --- 下拉選單 CSS 開始 --- */
-        .dropdown {
-            position: relative;
-            display: inline-block;
-        }
-
+        .dropdown { position: relative; display: inline-block; }
         .dropdown-menu {
-            display: none;
-            position: absolute;
-            top: 100%;
-            left: 0;
-            background-color: #ffffff;
-            min-width: 280px;
-            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.1);
-            border: 1px solid var(--border-color);
-            z-index: 1001;
-            padding: 4px 0; /* 縮減整體選單上下邊距 */
+            display: none; position: absolute; top: 100%; left: 0; background-color: #ffffff;
+            min-width: 280px; box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.1); border: 1px solid var(--border-color);
+            z-index: 1001; padding: 4px 0;
         }
-
         .dropdown-menu a {
-            font-family: 'BankGothic Md BT', sans-serif;
-            color: var(--text-color);
-            padding: 6px 20px; /* 縮減選項上下間距 (原本為 12px) */
-            text-decoration: none;
-            display: block;
-            font-size: 0.95rem; /* 放大字體 (原本為 0.8rem) */
-            letter-spacing: 1px;
-            white-space: nowrap;
-            transition: background-color 0.2s, color 0.2s;
+            font-family: 'BankGothic Md BT', sans-serif; color: var(--text-color); padding: 6px 20px;
+            text-decoration: none; display: block; font-size: 0.95rem; letter-spacing: 1px; white-space: nowrap; transition: 0.2s;
         }
-
-        .dropdown-menu a:hover {
-            background-color: #f8f8f8;
-            color: #000;
-        }
-
-        .dropdown:hover .dropdown-menu {
-            display: block;
-        }
-        /* --- 下拉選單 CSS 結束 --- */
+        .dropdown-menu a:hover { background-color: #f8f8f8; color: #000; }
+        .dropdown:hover .dropdown-menu { display: block; }
 
         .universal-hero { 
-            margin-top: 80px; height: 35vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center;
-            background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('bg-carbon.jpg'); 
+            margin-top: 80px; height: 50vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center;
+            background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('bg-carbon.jpg'); 
             background-size: cover; background-position: center; color: #fff;
         }
 
-        .main-content { max-width: 1200px; margin: 0 auto; padding: 60px 5% 100px; display: grid; grid-template-columns: 1.2fr 1fr; gap: 60px; align-items: start; }
+        /* 產品展示牆 Grid */
+        .collection-section { max-width: 1200px; margin: 0 auto; padding: 80px 5%; }
+        .section-title { font-size: 1.5rem; letter-spacing: 4px; text-transform: uppercase; text-align: center; margin-bottom: 50px; font-weight: 600; }
         
-        /* 💡 修正：圖片展示區容器 💡 */
-        .product-visual { display: flex; flex-direction: column; gap: 15px; }
-        
-        .main-image-container {
-            background-color: #fcfcfc; aspect-ratio: 4/3; display: flex; align-items: center; justify-content: center; border: 1px solid #f0f0f0;
-            cursor: zoom-in; overflow: hidden;
-        }
-        .main-image-container img { width: 75%; height: auto; object-fit: contain; transition: transform 0.3s; }
-        
-        /* 💡 縮圖橫 Bar 💡 */
-        .thumbnail-bar { display: flex; gap: 10px; overflow-x: auto; padding-bottom: 10px; scrollbar-width: thin; }
-        .thumbnail-bar img { 
-            width: 80px; height: 60px; object-fit: cover; border: 1px solid #eee; cursor: pointer; opacity: 0.6; transition: 0.3s; 
-        }
-        .thumbnail-bar img.active { opacity: 1; border-color: #000; }
-        .thumbnail-bar img:hover { opacity: 1; }
-
-        /* 💡 放大模態視窗 (Modal) 💡 */
-        .modal {
-            display: none; position: fixed; z-index: 2000; top: 0; left: 0; width: 100%; height: 100%;
-            background-color: rgba(255,255,255,0.98); align-items: center; justify-content: center;
-        }
-        .modal-content { max-width: 90%; max-height: 80%; object-fit: contain; }
-        .close-modal { position: absolute; top: 30px; right: 50px; font-size: 40px; cursor: pointer; color: #000; }
-
-        .product-title { font-size: 2rem; font-weight: 600; border-bottom: 2px solid #000; padding-bottom: 10px; margin-bottom: 25px; }
-        
-        .comp-link-text {
-            display: inline-block; margin-top: 5px; margin-bottom: 35px; font-size: 0.95rem;
-            color: #000; font-weight: 700; text-decoration: none; border-bottom: 2px solid #000; transition: all 0.3s; letter-spacing: 1px;
-        }
-        .comp-link-text:hover { opacity: 0.6; }
-
-        .price { font-size: 1.8rem; font-weight: 700; margin-bottom: 30px; }
-        .btn-black { display: block; width: 100%; padding: 20px; background: #000; color: #fff; text-decoration: none; text-align: center; font-weight: 600; letter-spacing: 5px; }
+        .product-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 40px; }
+        .product-card { text-decoration: none; color: var(--text-color); border: 1px solid #f0f0f0; transition: transform 0.3s, box-shadow 0.3s; display: flex; flex-direction: column; }
+        .product-card:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.05); }
+        .card-img-container { aspect-ratio: 4/3; background: #fcfcfc; display: flex; align-items: center; justify-content: center; overflow: hidden; border-bottom: 1px solid #f0f0f0; }
+        .card-img-container img { width: 80%; height: auto; object-fit: contain; }
+        .card-info { padding: 25px; text-align: center; }
+        .card-title { font-family: 'BankGothic Md BT', sans-serif; font-size: 1rem; margin: 0 0 10px; font-weight: 600; letter-spacing: 1px; }
+        .card-link { font-size: 0.75rem; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; border-bottom: 1px solid #000; padding-bottom: 2px; }
 
         footer { padding: 80px 50px; border-top: 1px solid var(--border-color); text-align: center; font-size: 0.65rem; color: #ccc; letter-spacing: 3px; }
-        @media (max-width: 900px) { .main-content { grid-template-columns: 1fr; } }
     </style>
 </head>
 <body>
@@ -120,8 +66,8 @@
         <div class="dropdown">
             <a href="index.html">COLLECTION</a>
             <div class="dropdown-menu">
-                <a href="#">BMW Engine-Oil Cover Cap</a>
-                <a href="#">Paddle Shifter for BMW G</a>
+                <a href="bmw-oil-cap.html">BMW Engine-Oil Cover Cap</a>
+                <a href="bmw-paddle-shifter.html">Paddle Shifter for BMW G</a>
                 <a href="#">Paddle Shifter for Audi B10</a>
                 <a href="#">Paddle Shifter for Benz</a>
             </div>
@@ -132,68 +78,40 @@
 </nav>
 
 <section class="universal-hero">
-    <h1 style="letter-spacing: 8px; text-transform: uppercase;">Composite Refinement</h1>
+    <h1 style="letter-spacing: 8px; text-transform: uppercase; margin-bottom: 10px;">Composite Refinement</h1>
+    <p style="letter-spacing: 3px; font-size: 0.85rem; opacity: 0.8;">AUTOMOTIVE FORGED CARBON COMPONENTS</p>
 </section>
 
-<main class="main-content">
-    <div class="product-visual">
-        <div class="main-image-container" onclick="openModal()">
-            <img id="currentDisplay" src="image_87b1c8.jpg" alt="Carbon Fiber Oil Cap">
-        </div>
-        <div class="thumbnail-bar">
-            <img src="image_87b1c8.jpg" class="active" onclick="switchImage(this.src, this)">
-            <img src="image_87b1c9.jpg" onclick="switchImage(this.src, this)">
-            <img src="image_87b1c10.jpg" onclick="switchImage(this.src, this)">
-            <img src="image_87b1c11.jpg" onclick="switchImage(this.src, this)">
-            <img src="image_87b1c12.jpg" onclick="switchImage(this.src, this)">
-            <img src="image_87b1c13.jpg" onclick="switchImage(this.src, this)">
-        </div>
-    </div>
-
-    <div class="product-info">
-        <h2 class="product-title">BMW 碳纖維機油蓋</h2>
-        <p style="color: #666; margin-bottom: 10px;">
-            採用航太級 3K 預浸碳纖維布，採用鍛造熱壓成型。專為 BMW G 系列引擎室量身打造，展現極致工藝。
-        </p>
+<main class="collection-section">
+    <h2 class="section-title">Product Lineup</h2>
+    <div class="product-grid">
         
-        <a href="compatibility.html" class="comp-link-text">查看完整適用車種清單 →</a>
+        <!-- 產品 1 -->
+        <a href="bmw-oil-cap.html" class="product-card">
+            <div class="card-img-container">
+                <img src="image_87b1c8.jpg" alt="BMW Engine-Oil Cover Cap">
+            </div>
+            <div class="card-info">
+                <h3 class="card-title">BMW Engine-Oil Cover Cap</h3>
+                <span class="card-link">View Product →</span>
+            </div>
+        </a>
 
-        <div class="price">TWD 1280</div>
-        <a href="contact.html" class="btn-black">立即預訂</a>
+        <!-- 產品 2 -->
+        <a href="bmw-paddle-shifter.html" class="product-card">
+            <div class="card-img-container">
+                <img src="paddle_placeholder.jpg" alt="Paddle Shifter for BMW G" style="opacity: 0.3;">
+            </div>
+            <div class="card-info">
+                <h3 class="card-title">Paddle Shifter for BMW G</h3>
+                <span class="card-link">View Product →</span>
+            </div>
+        </a>
+
     </div>
 </main>
 
-<div id="imageModal" class="modal" onclick="closeModal()">
-    <span class="close-modal">&times;</span>
-    <img class="modal-content" id="modalImg">
-</div>
-
 <footer>© 2026 CRAFTED COMPOSITE.</footer>
-
-<script>
-    // 切換大圖
-    function switchImage(src, thumb) {
-        document.getElementById('currentDisplay').src = src;
-        // 處理縮圖的高亮狀態
-        const thumbs = document.querySelectorAll('.thumbnail-bar img');
-        thumbs.forEach(t => t.classList.remove('active'));
-        thumb.classList.add('active');
-    }
-
-    // 放大圖片
-    function openModal() {
-        const modal = document.getElementById('imageModal');
-        const modalImg = document.getElementById('modalImg');
-        const currentImg = document.getElementById('currentDisplay');
-        modal.style.display = "flex";
-        modalImg.src = currentImg.src;
-    }
-
-    // 關閉放大視窗
-    function closeModal() {
-        document.getElementById('imageModal').style.display = "none";
-    }
-</script>
 
 </body>
 </html>
