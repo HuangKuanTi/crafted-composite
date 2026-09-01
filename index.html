@@ -21,6 +21,47 @@
         .nav-links { display: flex; gap: 40px; }
         .nav-links a { text-decoration: none; color: var(--text-color); font-size: 0.75rem; font-weight: 500; letter-spacing: 2px; }
 
+        /* --- 下拉選單 CSS 開始 --- */
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: #ffffff;
+            min-width: 280px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.1);
+            border: 1px solid var(--border-color);
+            z-index: 1001;
+            padding: 4px 0; /* 縮減整體選單上下邊距 */
+        }
+
+        .dropdown-menu a {
+            font-family: 'BankGothic Md BT', sans-serif;
+            color: var(--text-color);
+            padding: 6px 20px; /* 縮減選項上下間距 (原本為 12px) */
+            text-decoration: none;
+            display: block;
+            font-size: 0.95rem; /* 放大字體 (原本為 0.8rem) */
+            letter-spacing: 1px;
+            white-space: nowrap;
+            transition: background-color 0.2s, color 0.2s;
+        }
+
+        .dropdown-menu a:hover {
+            background-color: #f8f8f8;
+            color: #000;
+        }
+
+        .dropdown:hover .dropdown-menu {
+            display: block;
+        }
+        /* --- 下拉選單 CSS 結束 --- */
+
         .universal-hero { 
             margin-top: 80px; height: 35vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center;
             background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('bg-carbon.jpg'); 
@@ -76,7 +117,15 @@
         <img src="logo.png" alt="CRAFTED COMPOSITE">
     </a>
     <div class="nav-links">
-        <a href="index.html">COLLECTION</a>
+        <div class="dropdown">
+            <a href="index.html">COLLECTION</a>
+            <div class="dropdown-menu">
+                <a href="#">BMW Engine-Oil Cover Cap</a>
+                <a href="#">Paddle Shifter for BMW G</a>
+                <a href="#">Paddle Shifter for Audi B10</a>
+                <a href="#">Paddle Shifter for Benz</a>
+            </div>
+        </div>
         <a href="craft.html">CRAFT</a>
         <a href="contact.html">CONTACT</a>
     </div>
