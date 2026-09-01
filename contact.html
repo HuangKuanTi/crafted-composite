@@ -23,6 +23,20 @@
         .nav-links { display: flex; gap: 40px; }
         .nav-links a { text-decoration: none; color: var(--text-color); font-size: 0.75rem; font-weight: 500; letter-spacing: 2px; }
 
+        /* 下拉選單 CSS */
+        .dropdown { position: relative; display: inline-block; }
+        .dropdown-menu {
+            display: none; position: absolute; top: 100%; left: 0; background-color: #ffffff;
+            min-width: 280px; box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.1); border: 1px solid var(--border-color);
+            z-index: 1001; padding: 4px 0;
+        }
+        .dropdown-menu a {
+            font-family: 'BankGothic Md BT', sans-serif; color: var(--text-color); padding: 6px 20px;
+            text-decoration: none; display: block; font-size: 0.95rem; letter-spacing: 1px; white-space: nowrap; transition: 0.2s;
+        }
+        .dropdown-menu a:hover { background-color: #f8f8f8; color: #000; }
+        .dropdown:hover .dropdown-menu { display: block; }
+
         /* 統一 Hero 區塊 */
         .universal-hero { 
             margin-top: 80px; height: 35vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center;
@@ -47,6 +61,22 @@
         .info-value a { color: inherit; text-decoration: none; border-bottom: 1px solid #ddd; transition: 0.3s; }
         .info-value a:hover { border-bottom: 1px solid #000; }
 
+        /* eBay Logo 樣式 */
+        .ebay-store-link {
+            display: inline-block;
+            margin-top: 5px;
+            transition: transform 0.2s ease, opacity 0.2s ease;
+        }
+        .ebay-store-link:hover {
+            transform: scale(1.03);
+            opacity: 0.85;
+        }
+        .ebay-logo-img {
+            height: 32px;
+            width: auto;
+            display: block;
+        }
+
         .map-box {
             width: 100%; aspect-ratio: 1/1; background-color: #f8f8f8;
             border: 1px solid #eee; position: relative; overflow: hidden;
@@ -68,7 +98,15 @@
         <img src="logo.png" alt="CRAFTED COMPOSITE">
     </a>
     <div class="nav-links">
-        <a href="index.html">COLLECTION</a>
+        <div class="dropdown">
+            <a href="index.html">COLLECTION</a>
+            <div class="dropdown-menu">
+                <a href="bmw-oil-cap.html">BMW Engine-Oil Cover Cap</a>
+                <a href="bmw-paddle-shifter.html">Paddle Shifter for BMW G</a>
+                <a href="audi-b10-paddle-shifter.html">Paddle Shifter for Audi B10</a>
+                <a href="benz-paddle-shifter.html">Paddle Shifter for Benz</a>
+            </div>
+        </div>
         <a href="craft.html">CRAFT</a>
         <a href="contact.html">CONTACT</a>
     </div>
@@ -84,6 +122,13 @@
         <h2>Get in Touch</h2>
         <p>無論您是對 BMW G-Series 配件有預購需求，或是希望針對高性能複合材料零件進行客製化開發諮詢，歡迎隨時透過以下方式與我們聯繫。</p>
         
+        <div class="info-item">
+            <div class="info-label">Official Store</div>
+            <a href="https://www.ebay.com/usr/huangkuanti" target="_blank" rel="noopener noreferrer" class="ebay-store-link" title="Visit Our Official eBay Store">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/1/1b/EBay_logo.svg" alt="eBay Store" class="ebay-logo-img">
+            </a>
+        </div>
+
         <div class="info-item">
             <div class="info-label">Email</div>
             <div class="info-value"><a href="mailto:kt.huang@crafted-composite.com">kt.huang@crafted-composite.com</a></div>
