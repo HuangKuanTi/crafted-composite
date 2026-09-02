@@ -20,11 +20,12 @@
         .brand-logo { display: flex; align-items: center; text-decoration: none; }
         .brand-logo img { height: 38px; width: auto; display: block; mix-blend-mode: multiply; }
 
-        .nav-links { display: flex; gap: 40px; }
-        .nav-links a { text-decoration: none; color: var(--text-color); font-size: 0.75rem; font-weight: 500; letter-spacing: 2px; }
+        /* 💡 修正 1：加上 align-items: center 強制所有選單項目垂直置中對齊 */
+        .nav-links { display: flex; align-items: center; gap: 40px; }
+        .nav-links a { text-decoration: none; color: var(--text-color); font-size: 0.75rem; font-weight: 500; letter-spacing: 2px; display: inline-flex; align-items: center; }
 
-        /* 下拉選單 CSS */
-        .dropdown { position: relative; display: inline-block; }
+        /* 💡 修正 2：改為 flex 並垂直置中 */
+        .dropdown { position: relative; display: flex; align-items: center; }
         .dropdown-menu {
             display: none; position: absolute; top: 100%; left: 0; background-color: #ffffff;
             min-width: 280px; box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.1); border: 1px solid var(--border-color);
