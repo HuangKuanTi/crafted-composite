@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CRAFT | CRAFTED COMPOSITE</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;600&family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600&family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
     <style>
         :root { --bg-color: #ffffff; --text-color: #1a1a1a; --border-color: #eeeeee; }
         * { box-sizing: border-box; }
@@ -17,20 +17,34 @@
             border-bottom: 1px solid var(--border-color); backdrop-filter: blur(10px);
         }
         
-        /* 💡 修正：圖片 Logo 樣式 💡 */
         .brand-logo { display: flex; align-items: center; text-decoration: none; }
         .brand-logo img { height: 38px; width: auto; display: block; mix-blend-mode: multiply; }
 
-        .nav-links { display: flex; gap: 40px; }
-        .nav-links a { text-decoration: none; color: var(--text-color); font-size: 0.75rem; font-weight: 500; letter-spacing: 2px; }
+        .nav-links { display: flex; align-items: center; gap: 40px; }
+        .nav-links a { text-decoration: none; color: var(--text-color); font-size: 0.75rem; font-weight: 500; letter-spacing: 2px; display: inline-flex; align-items: center; }
 
-        /* Hero 區塊 */
+        .dropdown { position: relative; display: flex; align-items: center; }
+        .dropdown-menu {
+            display: none; position: absolute; top: 100%; left: 0; background-color: #ffffff;
+            min-width: 280px; box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.1); border: 1px solid var(--border-color);
+            z-index: 1001; padding: 4px 0;
+        }
+        .dropdown-menu a {
+            font-family: 'BankGothic Md BT', sans-serif; color: var(--text-color); padding: 6px 20px;
+            text-decoration: none; display: block; font-size: 0.95rem; letter-spacing: 1px; white-space: nowrap; transition: 0.2s;
+        }
+        .dropdown-menu a:hover { background-color: #f8f8f8; color: #000; }
+        .dropdown:hover .dropdown-menu { display: block; }
+
+        /* 統一全站 Hero 區塊樣式 */
         .universal-hero { 
-            margin-top: 80px; height: 35vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center;
-            background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('bg-carbon.jpg'); 
+            margin-top: 80px; height: 38vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center;
+            background-image: linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)), url('bg-carbon.jpg'); 
             background-size: cover; background-position: center; color: #fff;
         }
-        .universal-hero h1 { font-size: clamp(1.8rem, 4vw, 2.5rem); font-weight: 300; letter-spacing: 8px; text-transform: uppercase; margin: 0; }
+        .universal-hero h1 { 
+            font-size: clamp(1.6rem, 3.5vw, 2.3rem); font-weight: 300; letter-spacing: 7px; text-transform: uppercase; margin: 0; 
+        }
 
         .diagram-title { text-align: center; margin-bottom: 30px; padding: 0 20px; }
         .diagram-title h2 { font-size: 1.3rem; font-weight: 500; letter-spacing: 4px; text-transform: uppercase; margin: 0; }
@@ -99,7 +113,15 @@
         <img src="logo.png" alt="CRAFTED COMPOSITE">
     </a>
     <div class="nav-links">
-        <a href="index.html">COLLECTION</a>
+        <div class="dropdown">
+            <a href="index.html">COLLECTION</a>
+            <div class="dropdown-menu">
+                <a href="bmw-oil-cap.html">BMW Engine-Oil Cover Cap</a>
+                <a href="bmw-paddle-shifter.html">Paddle Shifter for BMW G</a>
+                <a href="audi-b10-paddle-shifter.html">Paddle Shifter for Audi B10</a>
+                <a href="benz-paddle-shifter.html">Paddle Shifter for Benz</a>
+            </div>
+        </div>
         <a href="craft.html">CRAFT</a>
         <a href="contact.html">CONTACT</a>
     </div>

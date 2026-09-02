@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CONTACT | CRAFTED COMPOSITE</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;600&family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600&family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
     <style>
         :root { --bg-color: #ffffff; --text-color: #1a1a1a; --border-color: #eeeeee; }
         * { box-sizing: border-box; }
@@ -20,11 +20,9 @@
         .brand-logo { display: flex; align-items: center; text-decoration: none; }
         .brand-logo img { height: 38px; width: auto; display: block; mix-blend-mode: multiply; }
 
-        /* 💡 修正 1：加上 align-items: center 強制所有選單項目垂直置中對齊 */
         .nav-links { display: flex; align-items: center; gap: 40px; }
         .nav-links a { text-decoration: none; color: var(--text-color); font-size: 0.75rem; font-weight: 500; letter-spacing: 2px; display: inline-flex; align-items: center; }
 
-        /* 💡 修正 2：改為 flex 並垂直置中 */
         .dropdown { position: relative; display: flex; align-items: center; }
         .dropdown-menu {
             display: none; position: absolute; top: 100%; left: 0; background-color: #ffffff;
@@ -38,14 +36,18 @@
         .dropdown-menu a:hover { background-color: #f8f8f8; color: #000; }
         .dropdown:hover .dropdown-menu { display: block; }
 
-        /* 統一 Hero 區塊 */
+        /* 統一全站 Hero 區塊樣式 */
         .universal-hero { 
-            margin-top: 80px; height: 35vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center;
-            background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('bg-carbon.jpg'); 
+            margin-top: 80px; height: 38vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center;
+            background-image: linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)), url('bg-carbon.jpg'); 
             background-size: cover; background-position: center; color: #fff;
         }
-        .universal-hero h1 { font-size: clamp(1.8rem, 4vw, 2.5rem); font-weight: 300; letter-spacing: 8px; text-transform: uppercase; margin: 0; }
-        .universal-hero p { letter-spacing: 5px; font-size: 0.7rem; color: #ccc; text-transform: uppercase; margin-top: 10px; }
+        .universal-hero h1 { 
+            font-size: clamp(1.6rem, 3.5vw, 2.3rem); font-weight: 300; letter-spacing: 7px; text-transform: uppercase; margin: 0; 
+        }
+        .universal-hero p { 
+            font-size: 0.75rem; font-weight: 300; letter-spacing: 4px; color: rgba(255, 255, 255, 0.8); text-transform: uppercase; margin-top: 8px; 
+        }
 
         /* 聯絡內容區塊 */
         .contact-container {
