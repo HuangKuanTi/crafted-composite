@@ -4,24 +4,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BMW Engine-Oil Cover Cap | CRAFTED COMPOSITE</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600&family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
     <style>
         :root { --bg-color: #ffffff; --text-color: #1a1a1a; --border-color: #eeeeee; }
         * { box-sizing: border-box; }
-        body { margin: 0; padding: 0; font-family: 'Inter', sans-serif; background: var(--bg-color); color: var(--text-color); line-height: 1.8; }
+        body { margin: 0; padding: 0; font-family: 'Inter', 'Noto Sans TC', sans-serif; background: var(--bg-color); color: var(--text-color); line-height: 1.8; }
 
         nav { 
             width: 100%; height: 80px; display: flex; justify-content: space-between; align-items: center; 
-            padding: 0 5%; background: #ffffff; position: fixed; top: 0; z-index: 1000; 
-            border-bottom: 1px solid var(--border-color);
+            padding: 0 5%; background: rgba(255, 255, 255, 0.95); position: fixed; top: 0; z-index: 1000; 
+            border-bottom: 1px solid var(--border-color); backdrop-filter: blur(10px);
         }
         
         .brand-logo { display: flex; align-items: center; text-decoration: none; }
         .brand-logo img { height: 38px; width: auto; display: block; mix-blend-mode: multiply; }
 
-        .nav-links { display: flex; gap: 40px; }
-        .nav-links a { text-decoration: none; color: var(--text-color); font-size: 0.75rem; font-weight: 500; letter-spacing: 2px; }
+        .nav-links { display: flex; align-items: center; gap: 40px; }
+        .nav-links a { text-decoration: none; color: var(--text-color); font-size: 0.75rem; font-weight: 500; letter-spacing: 2px; display: inline-flex; align-items: center; }
 
-        .dropdown { position: relative; display: inline-block; }
+        .dropdown { position: relative; display: flex; align-items: center; }
         .dropdown-menu {
             display: none; position: absolute; top: 100%; left: 0; background-color: #ffffff;
             min-width: 280px; box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.1); border: 1px solid var(--border-color);
@@ -35,9 +36,15 @@
         .dropdown:hover .dropdown-menu { display: block; }
 
         .universal-hero { 
-            margin-top: 80px; height: 35vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center;
-            background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('bg-carbon.jpg'); 
+            margin-top: 80px; height: 38vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center;
+            background-image: linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)), url('bg-carbon.jpg'); 
             background-size: cover; background-position: center; color: #fff;
+        }
+        .universal-hero h1 { 
+            font-size: clamp(1.6rem, 3.5vw, 2.3rem); font-weight: 300; letter-spacing: 7px; text-transform: uppercase; margin: 0; 
+        }
+        .universal-hero p { 
+            font-size: 0.75rem; font-weight: 300; letter-spacing: 4px; color: rgba(255, 255, 255, 0.8); text-transform: uppercase; margin-top: 8px; 
         }
 
         .main-content { max-width: 1200px; margin: 0 auto; padding: 60px 5% 100px; display: grid; grid-template-columns: 1.2fr 1fr; gap: 60px; align-items: start; }
@@ -73,8 +80,8 @@
             <div class="dropdown-menu">
                 <a href="bmw-oil-cap.html">BMW Engine-Oil Cover Cap</a>
                 <a href="bmw-paddle-shifter.html">Paddle Shifter for BMW G</a>
-                <a href="#">Paddle Shifter for Audi B10</a>
-                <a href="#">Paddle Shifter for Benz</a>
+                <a href="audi-b10-paddle-shifter.html">Paddle Shifter for Audi B10</a>
+                <a href="benz-paddle-shifter.html">Paddle Shifter for Benz</a>
             </div>
         </div>
         <a href="craft.html">CRAFT</a>
@@ -83,16 +90,28 @@
 </nav>
 
 <section class="universal-hero">
-    <h1 style="letter-spacing: 8px; text-transform: uppercase;">Composite Refinement</h1>
+    <h1>Composite Refinement</h1>
+    <p>Crafted Composite Collection</p>
 </section>
 
 <main class="main-content">
     <div class="product-visual">
         <div class="main-image-container" onclick="openModal()">
-            <img id="currentDisplay" src="image_87b1c8.jpg" alt="Carbon Fiber Oil Cap">
+            <!-- 主圖預設顯示海報封面 -->
+            <img id="currentDisplay" src="CraftedComposite_Forged_Carbon_EngineoilCap_CoverPhoto.JPG" alt="BMW Forged Carbon Oil Cap">
         </div>
         <div class="thumbnail-bar">
-            <img src="image_87b1c8.jpg" class="active" onclick="switchImage(this.src, this)">
+            <!-- 1. 海報封面圖 (預設 Active) -->
+            <img src="CraftedComposite_Forged_Carbon_EngineoilCap_CoverPhoto.JPG" class="active" onclick="switchImage(this.src, this)">
+            
+            <!-- 2. 三向排列實體圖 -->
+            <img src="CraftedComposite_Forged_Carbon_EngineoilCap_Triple.jpg" onclick="switchImage(this.src, this)">
+            
+            <!-- 3. 引擎室實裝視角圖 -->
+            <img src="CraftedComposite_Forged_Carbon_EngineoilCap_EngineBay.jpg" onclick="switchImage(this.src, this)">
+            
+            <!-- 原有展示照片 -->
+            <img src="image_87b1c8.jpg" onclick="switchImage(this.src, this)">
             <img src="image_87b1c9.jpg" onclick="switchImage(this.src, this)">
             <img src="image_87b1c10.jpg" onclick="switchImage(this.src, this)">
             <img src="image_87b1c11.jpg" onclick="switchImage(this.src, this)">
