@@ -47,22 +47,35 @@
             font-size: 0.75rem; font-weight: 300; letter-spacing: 4px; color: rgba(255, 255, 255, 0.8); text-transform: uppercase; margin-top: 8px; 
         }
 
-        /* 💡 修正 1：調整左右欄位比例為 1fr 1fr，間距縮減至 40px，釋放右側寬度 💡 */
-        .main-content { max-width: 1200px; margin: 0 auto; padding: 60px 5% 100px; display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: start; }
+        .main-content { max-width: 1200px; margin: 0 auto; padding: 60px 5% 100px; display: grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items: start; }
         
-        .product-visual { display: flex; flex-direction: column; gap: 15px; }
+        .product-visual { display: flex; flex-direction: column; gap: 15px; width: 100%; }
         .main-image-container { background-color: #fcfcfc; aspect-ratio: 4/3; display: flex; align-items: center; justify-content: center; border: 1px solid #f0f0f0; cursor: zoom-in; overflow: hidden; }
         .main-image-container img { max-width: 85%; max-height: 85%; width: auto; height: auto; object-fit: contain; transition: transform 0.3s; }
         
-        .thumbnail-bar { display: flex; gap: 10px; overflow-x: auto; padding-bottom: 10px; scrollbar-width: thin; }
-        .thumbnail-bar img { width: 80px; height: 60px; object-fit: cover; border: 1px solid #eee; cursor: pointer; opacity: 0.6; transition: 0.3s; }
+        /* 💡 修正：改為 5 欄 Grid 網格，9 張圖自動分成兩行，完美鎖定在左欄寬度內 💡 */
+        .thumbnail-bar { 
+            display: grid; 
+            grid-template-columns: repeat(5, 1fr); 
+            gap: 8px; 
+            width: 100%;
+        }
+        .thumbnail-bar img { 
+            width: 100%; 
+            height: 60px; 
+            object-fit: cover; 
+            border: 1px solid #eee; 
+            cursor: pointer; 
+            opacity: 0.6; 
+            transition: 0.3s; 
+        }
         .thumbnail-bar img.active { opacity: 1; border-color: #000; }
 
         .modal { display: none; position: fixed; z-index: 2000; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(255,255,255,0.98); align-items: center; justify-content: center; }
         .modal-content { max-width: 90%; max-height: 80%; object-fit: contain; }
         .close-modal { position: absolute; top: 30px; right: 50px; font-size: 40px; cursor: pointer; color: #000; }
 
-        /* 💡 修正 2：標題字級適度調至 1.65rem 並強制不換行，解決標題被折成兩行問題 💡 */
+        .product-info { width: 100%; }
         .product-title { font-size: 1.65rem; font-weight: 600; border-bottom: 2px solid #000; padding-bottom: 10px; margin-bottom: 20px; white-space: nowrap; letter-spacing: 1px; }
         .product-info p { color: #666; font-size: 0.95rem; margin-bottom: 20px; line-height: 1.8; }
         .comp-link-text { display: inline-block; margin-top: 5px; margin-bottom: 30px; font-size: 0.95rem; color: #000; font-weight: 700; text-decoration: none; border-bottom: 2px solid #000; transition: all 0.3s; letter-spacing: 1px; }
@@ -110,18 +123,14 @@
             <img id="currentDisplay" src="CraftedComposite_Forged_Carbon_EngineoilCap_CoverPhoto.JPG" alt="BMW Forged Carbon Oil Cap">
         </div>
         <div class="thumbnail-bar">
-            <!-- 1. 海報封面圖 (預設 Active) -->
+            <!-- 第一行 5 張 -->
             <img src="CraftedComposite_Forged_Carbon_EngineoilCap_CoverPhoto.JPG" class="active" onclick="switchImage(this.src, this)">
-            
-            <!-- 2. 三向排列實體圖 -->
             <img src="CraftedComposite_Forged_Carbon_EngineoilCap_Triple.jpg" onclick="switchImage(this.src, this)">
-            
-            <!-- 3. 引擎室實裝視角圖 -->
             <img src="CraftedComposite_Forged_Carbon_EngineoilCap_EngineBay.jpg" onclick="switchImage(this.src, this)">
-            
-            <!-- 原有展示照片 -->
             <img src="image_87b1c8.jpg" onclick="switchImage(this.src, this)">
             <img src="image_87b1c9.jpg" onclick="switchImage(this.src, this)">
+            
+            <!-- 第二行 4 張 -->
             <img src="image_87b1c10.jpg" onclick="switchImage(this.src, this)">
             <img src="image_87b1c11.jpg" onclick="switchImage(this.src, this)">
             <img src="image_87b1c12.jpg" onclick="switchImage(this.src, this)">
