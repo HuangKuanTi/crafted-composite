@@ -47,11 +47,11 @@
             font-size: 0.75rem; font-weight: 300; letter-spacing: 4px; color: rgba(255, 255, 255, 0.8); text-transform: uppercase; margin-top: 8px; 
         }
 
-        .main-content { max-width: 1200px; margin: 0 auto; padding: 60px 5% 100px; display: grid; grid-template-columns: 1.2fr 1fr; gap: 60px; align-items: start; }
+        /* 💡 修正 1：調整左右欄位比例為 1fr 1fr，間距縮減至 40px，釋放右側寬度 💡 */
+        .main-content { max-width: 1200px; margin: 0 auto; padding: 60px 5% 100px; display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: start; }
+        
         .product-visual { display: flex; flex-direction: column; gap: 15px; }
         .main-image-container { background-color: #fcfcfc; aspect-ratio: 4/3; display: flex; align-items: center; justify-content: center; border: 1px solid #f0f0f0; cursor: zoom-in; overflow: hidden; }
-        
-        /* 💡 修正：使用 max-width / max-height 確保任何比例照片都不會被截斷 💡 */
         .main-image-container img { max-width: 85%; max-height: 85%; width: auto; height: auto; object-fit: contain; transition: transform 0.3s; }
         
         .thumbnail-bar { display: flex; gap: 10px; overflow-x: auto; padding-bottom: 10px; scrollbar-width: thin; }
@@ -62,13 +62,19 @@
         .modal-content { max-width: 90%; max-height: 80%; object-fit: contain; }
         .close-modal { position: absolute; top: 30px; right: 50px; font-size: 40px; cursor: pointer; color: #000; }
 
-        .product-title { font-size: 2rem; font-weight: 600; border-bottom: 2px solid #000; padding-bottom: 10px; margin-bottom: 25px; }
-        .comp-link-text { display: inline-block; margin-top: 5px; margin-bottom: 35px; font-size: 0.95rem; color: #000; font-weight: 700; text-decoration: none; border-bottom: 2px solid #000; transition: all 0.3s; letter-spacing: 1px; }
-        .price { font-size: 1.8rem; font-weight: 700; margin-bottom: 30px; }
-        .btn-black { display: block; width: 100%; padding: 20px; background: #000; color: #fff; text-decoration: none; text-align: center; font-weight: 600; letter-spacing: 5px; }
+        /* 💡 修正 2：標題字級適度調至 1.65rem 並強制不換行，解決標題被折成兩行問題 💡 */
+        .product-title { font-size: 1.65rem; font-weight: 600; border-bottom: 2px solid #000; padding-bottom: 10px; margin-bottom: 20px; white-space: nowrap; letter-spacing: 1px; }
+        .product-info p { color: #666; font-size: 0.95rem; margin-bottom: 20px; line-height: 1.8; }
+        .comp-link-text { display: inline-block; margin-top: 5px; margin-bottom: 30px; font-size: 0.95rem; color: #000; font-weight: 700; text-decoration: none; border-bottom: 2px solid #000; transition: all 0.3s; letter-spacing: 1px; }
+        .price { font-size: 1.8rem; font-weight: 700; margin-bottom: 25px; }
+        .btn-black { display: block; width: 100%; padding: 18px; background: #000; color: #fff; text-decoration: none; text-align: center; font-weight: 600; letter-spacing: 4px; }
 
         footer { padding: 80px 50px; border-top: 1px solid var(--border-color); text-align: center; font-size: 0.65rem; color: #ccc; letter-spacing: 3px; }
-        @media (max-width: 900px) { .main-content { grid-template-columns: 1fr; } }
+        
+        @media (max-width: 900px) { 
+            .main-content { grid-template-columns: 1fr; } 
+            .product-title { font-size: 1.4rem; white-space: normal; }
+        }
     </style>
 </head>
 <body>
@@ -125,7 +131,7 @@
 
     <div class="product-info">
         <h2 class="product-title">BMW 碳纖維機油蓋</h2>
-        <p style="color: #666; margin-bottom: 10px;">
+        <p>
             採用航太級 3K 預浸碳纖維布，採用鍛造熱壓成型。專為 BMW G 系列引擎室量身打造，展現極致工藝。
         </p>
         
