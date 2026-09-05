@@ -50,7 +50,10 @@
         .main-content { max-width: 1200px; margin: 0 auto; padding: 60px 5% 100px; display: grid; grid-template-columns: 1.2fr 1fr; gap: 60px; align-items: start; }
         .product-visual { display: flex; flex-direction: column; gap: 15px; }
         .main-image-container { background-color: #fcfcfc; aspect-ratio: 4/3; display: flex; align-items: center; justify-content: center; border: 1px solid #f0f0f0; cursor: zoom-in; overflow: hidden; }
-        .main-image-container img { width: 75%; height: auto; object-fit: contain; transition: transform 0.3s; }
+        
+        /* 💡 修正：使用 max-width / max-height 確保任何比例照片都不會被截斷 💡 */
+        .main-image-container img { max-width: 85%; max-height: 85%; width: auto; height: auto; object-fit: contain; transition: transform 0.3s; }
+        
         .thumbnail-bar { display: flex; gap: 10px; overflow-x: auto; padding-bottom: 10px; scrollbar-width: thin; }
         .thumbnail-bar img { width: 80px; height: 60px; object-fit: cover; border: 1px solid #eee; cursor: pointer; opacity: 0.6; transition: 0.3s; }
         .thumbnail-bar img.active { opacity: 1; border-color: #000; }
