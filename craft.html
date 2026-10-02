@@ -82,19 +82,28 @@
         }
         .tool-card:last-child { margin-right: 15vw; }
 
-        /* 💡 修正：加上固定 25px 四周內距，確保兩張照片四周的白邊框粗細完全一致 💡 */
+        /* 💡 修正 1：調整 padding 為 10px，使兩張圖片尺寸與白邊框完全一致且不致過粗 💡 */
         .tool-card img { 
             width: 100%; 
             aspect-ratio: 1 / 1; 
             object-fit: contain; 
-            padding: 25px; 
+            padding: 10px; 
             background: #fff; 
             border: 1px solid #eee; 
             display: block; 
         }
 
         .tool-label { font-size: 0.7rem; letter-spacing: 2px; color: #bbb; text-transform: uppercase; margin: 15px 0 10px; }
-        .tool-desc { color: #555; font-size: 0.9rem; font-weight: 300; padding: 0 10px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+        
+        /* 💡 修正 2：設為 normal 允許自動換行，完整顯示說明文字 💡 */
+        .tool-desc { 
+            color: #555; 
+            font-size: 0.9rem; 
+            font-weight: 300; 
+            padding: 0 10px; 
+            white-space: normal; 
+            line-height: 1.6; 
+        }
 
         /* 指示器與箭頭 */
         .indicator-wrap { display: flex; flex-direction: column; align-items: center; margin-top: 30px; gap: 15px; }
