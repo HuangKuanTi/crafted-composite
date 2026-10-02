@@ -82,7 +82,15 @@
         }
         .tool-card:last-child { margin-right: 15vw; }
 
-        .tool-card img { width: 100%; height: auto; background: #fff; border: 1px solid #eee; display: block; }
+        /* 💡 修正：設置固定 1:1 正方形比例與置中完整呈現 💡 */
+        .tool-card img { 
+            width: 100%; 
+            aspect-ratio: 1 / 1; 
+            object-fit: contain; 
+            background: #fff; 
+            border: 1px solid #eee; 
+            display: block; 
+        }
 
         .tool-label { font-size: 0.7rem; letter-spacing: 2px; color: #bbb; text-transform: uppercase; margin: 15px 0 10px; }
         .tool-desc { color: #555; font-size: 0.9rem; font-weight: 300; padding: 0 10px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
