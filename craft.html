@@ -82,11 +82,12 @@
         }
         .tool-card:last-child { margin-right: 15vw; }
 
-        /* 💡 修正：設置固定 1:1 正方形比例與置中完整呈現 💡 */
+        /* 💡 修正：加上固定 25px 四周內距，確保兩張照片四周的白邊框粗細完全一致 💡 */
         .tool-card img { 
             width: 100%; 
             aspect-ratio: 1 / 1; 
             object-fit: contain; 
+            padding: 25px; 
             background: #fff; 
             border: 1px solid #eee; 
             display: block; 
